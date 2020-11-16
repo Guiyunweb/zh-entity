@@ -45,3 +45,15 @@ func CamelCaseToUdnderscore(s string) string {
 	}
 	return string(output)
 }
+
+// 单词转小写下划线写法
+func WordToLowerUdnderscore(s string) string {
+	s = ToLower(s)
+	return strings.Replace(s, " ", "_", -1)
+}
+
+// 单词转大写下划线写法
+func WordToUpperUdnderscore(s string) string {
+	s = ToUpper(s)
+	return strings.Replace(s, " ", "_", -1)
+}

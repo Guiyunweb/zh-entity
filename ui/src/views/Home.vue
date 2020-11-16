@@ -27,8 +27,14 @@
           ></v-textarea>
         </v-col>
       </v-row>
-      <v-btn depressed color="primary" @click="subJava()">
-        Java实体类
+      <v-btn depressed color="primary" @click="subJava()" style="margin: 10px 0px">
+        Java转换
+      </v-btn>
+      <v-btn depressed color="primary" @click="subSQL('1')" style="margin: 10px">
+        小写下划线SQL转换
+      </v-btn>
+      <v-btn depressed color="primary" @click="subSQL('2')" style="margin: 10px">
+        大写下划线SQL转换
       </v-btn>
     </div>
   </div>
@@ -41,13 +47,20 @@ export default {
   name: 'Home',
   data: () => ({
     body: '',
-    translate: ''
+    translate: '',
+    language: "java"
   }),
   methods: {
     subJava() {
-      api.SYS_USER_LOGIN({body:this.body}).then(res => {
-        this.translate  = res
-        console.log('res',res)
+      api.CONVERSION_JAVA({body: this.body}).then(res => {
+        this.translate = res
+        console.log('res', res)
+      })
+    },
+    subSQL(type) {
+      api.CONVERSION_SQL({body: this.body, type: type}).then(res => {
+        this.translate = res
+        console.log('res', res)
       })
     }
   }

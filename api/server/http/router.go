@@ -11,4 +11,5 @@ func LoadRouter(app *iris.Application) {
 
 func test(app *iris.Application) {
 	app.Post("/conversion/java", api.JavaConversion)
+	app.Post("/conversion/sql", api.SQLConversion)
 }

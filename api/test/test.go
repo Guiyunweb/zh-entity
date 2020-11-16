@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(utils.UderscoreToLowerCamelCase("hello world"))
+	fmt.Println(utils.WordToUdnderscore("hello world"))
 }

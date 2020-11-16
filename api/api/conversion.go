@@ -15,3 +15,13 @@ func JavaConversion(context *context.Context) {
 		successData(context, translate)
 	}
 }
+
+func SQLConversion(context *context.Context) {
+	dto := &model.EntityDTO{}
+	if err := context.ReadJSON(dto); err != nil {
+		panic(err.Error())
+	} else {
+		translate := service.SQLConversion(dto)
+		successData(context, translate)
+	}
+}
